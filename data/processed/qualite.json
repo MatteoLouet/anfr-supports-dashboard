@@ -1,0 +1,30 @@
+{
+  "lignes_supports_brutes": 199290,
+  "lignes_stations_brutes": 198174,
+  "lignes_emetteurs_brutes": 2464000,
+  "doublons_supports_exacts": 2,
+  "doublons_stations": 0,
+  "emetteurs_mobiles": 2317115,
+  "emetteurs_mobiles_sans_date": 200885,
+  "stations_mobiles": 139610,
+  "stations_mobiles_sans_support": 0,
+  "supports_mobiles": 73234,
+  "supports_sans_proprietaire": 4,
+  "supports_sans_insee": 0,
+  "supports_sans_coordonnees": 0,
+  "supports_hauteur_aberrante": 551,
+  "supports_departement_inconnu": 0,
+  "supports_sans_date_implantation": 0,
+  "export_reference": "20261031",
+  "instantanes_historiques": [
+    "20181031",
+    "20191031",
+    "20201030",
+    "20211029",
+    "20221028",
+    "20231031",
+    "20241031",
+    "20251031",
+    "20261031"
+  ]
+}

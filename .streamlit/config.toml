@@ -1,0 +1,18 @@
+[theme]
+base = "light"
+primaryColor = "#CC1505"
+backgroundColor = "#F5F3EE"
+secondaryBackgroundColor = "#ECE9E2"
+textColor = "#181818"
+borderColor = "#D8D5CE"
+showWidgetBorder = true
+baseRadius = "2px"
+font = "'Inter', sans-serif"
+headingFont = "'Inter Tight', sans-serif"
+codeFont = "'IBM Plex Mono', monospace"
+
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"
