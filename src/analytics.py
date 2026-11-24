@@ -31,7 +31,7 @@ TECHS = ["2G", "3G", "4G", "5G"]
 # --------------------------------------------------------------------------- chargement
 @st.cache_data(show_spinner="Chargement des supports…")
 def load_supports() -> pd.DataFrame:
-    df = pd.read_parquet(PROCESSED / "supports.parquet")
+    df = pd.concat([pd.read_parquet(f) for f in sorted(PROCESSED.glob("supports_*.parquet"))], ignore_index=True)
     for c in ["dep", "dep_nom", "region", "zone", "categorie", "proprietaire", "nature"]:
         df[c] = df[c].astype("category")
     return df
@@ -48,7 +48,7 @@ def load_qualite() -> dict:
 
 
 def data_ready() -> bool:
-    return (PROCESSED / "supports.parquet").exists() and (PROCESSED / "historique.parquet").exists()
+    return any(PROCESSED.glob("supports_*.parquet")) and (PROCESSED / "historique.parquet").exists()
 
 
 # --------------------------------------------------------------------------- filtres

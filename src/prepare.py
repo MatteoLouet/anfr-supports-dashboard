@@ -2,7 +2,7 @@
 
 Entrée  : data/raw/<AAAAMMJJ>/SUP_*.txt  (voir src/download.py)
 Sorties : data/processed/
-    supports.parquet   un support mobile par ligne (dernier export)
+    supports_*.parquet un support mobile par ligne (dernier export, 4 fichiers)
     historique.parquet supports mobiles agrégés par instantané × département × propriétaire
     qualite.json       journal des contrôles qualité (affiché dans l'application)
 
@@ -156,7 +156,12 @@ def main() -> None:
         agg.insert(0, "instantane", pd.Timestamp(folder.name))
         historique.append(agg)
         if last:
-            df.to_parquet(OUT / "supports.parquet", index=False)
+            # Découpé en 4 fichiers (< 500 Ko) pour rester léger à versionner.
+            for old in OUT.glob("supports*.parquet"):
+                old.unlink()
+            bornes = np.linspace(0, len(df), 5).astype(int)
+            for i, (a, b) in enumerate(zip(bornes[:-1], bornes[1:])):
+                df.iloc[a:b].to_parquet(OUT / f"supports_{i}.parquet", index=False, compression="zstd", compression_level=19)
             qualite["export_reference"] = folder.name
             print(f"       {len(df):,} supports mobiles enregistrés")
 

@@ -83,7 +83,7 @@ src/prepare.py         nettoyage, jointures, agrégats, contrôle qualité
 src/referentiels.py    départements, catégories de propriétaires, opérateurs
 src/analytics.py       chargement, filtres, calcul des KPIs et de l'indice
 src/charts.py          style commun des graphiques
-data/processed/        supports.parquet, historique.parquet, qualite.json
+data/processed/        supports_*.parquet, historique.parquet, qualite.json
 consignes.md           consignes du projet
 ```
 
